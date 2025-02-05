@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres pasar el 14 conmigo?</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: cursive;
+            margin-top: 50px;
+            background-color: rgb(235, 166, 208);
+            color: rgb(153, 151, 151);
+            background-image: url('img/corazontransparente.png'); /* Imagen de fondo */
+            background-size: cover;  /* Ajusta el tamaño para que cubra toda la pantalla */
+            background-position: center; /* Centra la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semitransparente para el contenido */
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;  /* Ancho del cuadro */
+            height: auto;  /* Altura automática según el contenido */
+            margin: 100px auto; /* Ajusta '100px' para moverlo hacia arriba o abajo */
+        }
+        #yes {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: cursive;
+        }
+        #no {
+            font-size: 20px;
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-family: cursive;
+            
+        }
+        #image-container {
+            margin-top: 20px;
+        }
+        #back {
+            background-color: #f889e9; /* Color morado suave */
+            color: white;
+            padding: 12px 25px;
+            font-size: 18px;
+            border: none;
+            border-radius: 20px; /* Bordes redondeados */
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra suave */
+            transition: transform 0.2s ease, background-color 0.3s ease; /* Transiciones suaves */
+}
+        img {
+            display: none; /* Oculta la imagen hasta que se haga clic en "SI" */
+            max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="question">¿Quieres pasar el 14 conmigo?</h1>
+        
+        <!-- Botones de opción -->
+        <button id="yes" onclick="showYesImage()">SI</button>
+        <button id="no" onclick="showNoImage()">NO</button>
+
+        <!-- Contenedor de imágenes -->
+        <div id="image-container">
+            <img id="peachImage" src="img/peach-goma-peach-and-goma.gif" alt="Peach Goma">
+            <img id="peachTriste" src="img/mochi-mochimochi.gif" alt="Peach Triste">
+        </div>
+
+        <!-- Botón para regresar -->
+        <button id="back" onclick="goBack()">Regresar</button>
+    </div>
+
+    <script>
+        function showYesImage() {
+            document.getElementById('peachImage').style.display = 'block';
+            document.getElementById('peachTriste').style.display = 'none';
+
+            // Ocultar botones de "SI" y "NO"
+            document.getElementById('yes').style.display = 'none';
+            document.getElementById('no').style.display = 'none';
+
+            // Cambiar texto de la pregunta
+            document.getElementById('question').innerText = "¡Sabía que dirías que sí! 💖";
+
+            // Mostrar botón de regresar
+            document.getElementById('back').style.display = 'block';
+        }
+
+        function showNoImage() {
+            document.getElementById('peachTriste').style.display = 'block';
+            document.getElementById('peachImage').style.display = 'none';
+
+            // Ocultar botones de "SI" y "NO"
+            document.getElementById('yes').style.display = 'none';
+            document.getElementById('no').style.display = 'none';
+
+            // Cambiar texto de la pregunta
+            document.getElementById('question').innerText = "Está bien, lo entiendo 😢";
+
+            // Mostrar botón de regresar
+            document.getElementById('back').style.display = 'block';
+        }
+
+        function goBack() {
+            // Ocultar imágenes
+            document.getElementById('peachImage').style.display = 'none';
+            document.getElementById('peachTriste').style.display = 'none';
+
+            // Mostrar botones de "SI" y "NO"
+            document.getElementById('yes').style.display = 'inline-block';
+            document.getElementById('no').style.display = 'inline-block';
+
+            // Restaurar texto de la pregunta
+            document.getElementById('question').innerText = "¿Quieres pasar el 14 conmigo?";
+
+            // Ocultar botón de regresar
+            document.getElementById('back').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+
+<!--<script>
+        let size = 20;
+        function makeYesBigger() {
+            size += 10;
+            document.getElementById('yes').style.fontSize = size + 'px';
+        }
+    </script>-->
+
